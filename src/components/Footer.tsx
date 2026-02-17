@@ -1,5 +1,3 @@
-import { Twitter, Linkedin, Github } from 'lucide-react';
-
 export const Footer = () => {
   return (
     <footer className="bg-black py-12 border-t border-white/5 relative z-10">

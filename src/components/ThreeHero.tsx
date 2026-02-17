@@ -24,7 +24,7 @@ function StarField(props: any) {
   const ref = useRef<any>();
   const [sphere] = useState(() => generateSphere(5000, 1.5));
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (ref.current) {
         ref.current.rotation.x -= delta / 10;
         ref.current.rotation.y -= delta / 15;
