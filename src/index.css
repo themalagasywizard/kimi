@@ -7,6 +7,7 @@
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-gradient-x: gradient-x 3s ease-in-out infinite;
   
   @keyframes float {
     0%, 100% { transform: translateY(0); }
@@ -16,6 +17,17 @@
   @keyframes glow {
     from { box-shadow: 0 0 10px -5px var(--color-brand-primary); }
     to { box-shadow: 0 0 20px 5px var(--color-brand-primary); }
+  }
+  
+  @keyframes gradient-x {
+    0%, 100% {
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+    50% {
+      background-size: 200% 200%;
+      background-position: right center;
+    }
   }
 }
 
