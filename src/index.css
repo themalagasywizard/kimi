@@ -1,7 +1,56 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-primary: #8b5cf6;
+  --color-brand-secondary: #ec4899;
+  --color-brand-accent: #06b6d4;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes glow {
+    from { box-shadow: 0 0 10px -5px var(--color-brand-primary); }
+    to { box-shadow: 0 0 20px 5px var(--color-brand-primary); }
+  }
+}
+
 @layer base {
   body {
-    @apply bg-black text-white antialiased font-sans selection:bg-cyan-500/30 selection:text-cyan-200;
+    @apply bg-black text-white antialiased selection:bg-purple-500/30 selection:text-purple-200 overflow-x-hidden;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-black;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-zinc-800 rounded-full hover:bg-zinc-700 transition-colors;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+  
+  .glass-card {
+    @apply bg-zinc-900/50 backdrop-blur-md border border-white/5 hover:border-white/10 transition-all duration-300;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-zinc-500;
+  }
+  
+  .text-gradient-brand {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 animate-gradient-x;
   }
 }
